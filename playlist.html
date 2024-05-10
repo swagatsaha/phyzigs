@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PHYZIGS by Swagat - Video Playlist</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         background-color: beige;
+         color: #333;
+         margin: 0;
+         padding: 0;
+      }
+
+      .container {
+         width: 80%;
+         margin: 0 auto;
+         padding: 20px 0;
+      }
+
+      header {
+         background-color: maroon;
+         color: beige;
+         padding: 20px 0;
+         text-align: center;
+      }
+
+      header h1 {
+         font-size: 36px;
+         font-weight: bold;
+         margin: 0;
+      }
+
+      .playlist-details {
+         background-color: beige;
+         padding: 20px 0;
+         text-align: center;
+      }
+
+      .playlist-details h2 {
+         color: maroon;
+         font-size: 28px;
+         margin-bottom: 10px;
+         text-transform: uppercase;
+      }
+
+      .playlist-details p {
+         margin-bottom: 20px;
+         color: #555;
+         font-size: 18px;
+      }
+
+      .playlist-videos {
+         padding: 50px 0;
+      }
+
+      .playlist-videos h2 {
+         color: maroon;
+         font-size: 28px;
+         text-align: center;
+         margin-bottom: 20px;
+         text-transform: uppercase;
+      }
+
+      .video-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+         gap: 20px;
+      }
+
+      .video-container {
+         border-radius: 15px;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+         overflow: hidden;
+         transition: all 0.3s ease;
+         cursor: pointer;
+         position: relative;
+      }
+
+      .video-container:hover {
+         transform: scale(1.05);
+      }
+
+      .video-container img {
+         width: 100%;
+         height: auto;
+         object-fit: cover;
+      }
+
+      .modal {
+         display: none;
+         position: fixed;
+         z-index: 1;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .modal-content {
+         background-color: #fefefe;
+         margin: auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 70%;
+         max-width: 600px;
+         border-radius: 15px;
+         position: relative;
+         top: 50%;
+         transform: translateY(-50%);
+      }
+
+      .modal-content video {
+         width: 100%;
+         height: auto;
+         border-radius: 15px;
+      }
+
+      .close {
+         color: #aaa;
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+         color: black;
+         text-decoration: none;
+         cursor: pointer;
+      }
+
+      .play-on-youtube-button,
+      .test-button,
+      .download-button {
+         display: block;
+         margin-top: 10px;
+         background-color: maroon;
+         color: beige;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         text-decoration: none;
+         font-size: 16px;
+         transition: transform 0.3s ease; /* Apply transition effect */
+      }
+
+      .play-on-youtube-button:hover,
+      .test-button:hover,
+      .download-button:hover {
+         transform: scale(1.1); /* Zoom in effect on hover */
+         background-color: #800000;
+      }
+
+      footer {
+         background-color: maroon;
+         color: beige;
+         padding: 20px 0;
+         text-align: center;
+      }
+
+      footer p {
+         font-size: 14px;
+      }
+
+      @media screen and (max-width: 768px) {
+         .video-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+         }
+      }
+   </style>
+</head>
+<body>
+
+<header>
+   <div class="container">
+      <h1>PHYZIGS by Swagat</h1>
+   </div>
+</header>
+
+<section class="playlist-details">
+   <div class="container">
+      <div class="playlist-info">
+         <h2>Class 8 - Physics</h2>
+         <p>Chapter: FORCE AND PRESSURE</p>
+      </div>
+   </div>
+</section>
+
+<section class="playlist-videos">
+   <div class="container">
+      <h2>Playlist Videos</h2>
+      <div class="video-grid">
+         <div class="video-container" onclick="document.getElementById('modal1').style.display='block'">
+            <img src="fp1.png" alt="Video Thumbnail">
+            <h3>Topic 1</h3>
+            <a href="#" class="play-on-youtube-button">Play Full Video on YouTube</a>
+            <a href="final mcq.html" class="test-button">Take Test</a> <!-- Link to another HTML file -->
+            <button class="download-button" onclick="downloadNotes('path_to_topic1_notes.pdf')">Download Notes</button>
+         </div>
+         <div class="video-container" onclick="document.getElementById('modal2').style.display='block'">
+            <img src="fp2.png" alt="Video Thumbnail">
+            <h3>Topic 2</h3>
+            <a href="#" class="play-on-youtube-button">Play Full Video on YouTube</a>
+            <a href="path_to_another_html.html" class="test-button">Take Test</a> <!-- Link to another HTML file -->
+            <button class="download-button" onclick="downloadNotes('path_to_topic2_notes.pdf')">Download Notes</button>
+         </div>
+         <div class="video-container" onclick="document.getElementById('modal3').style.display='block'">
+            <img src="fpt3.jpeg" alt="Video Thumbnail">
+            <h3>Topic 3</h3>
+            <a href="#" class="play-on-youtube-button">Play Full Video on YouTube</a>
+            <a href="path_to_another_html.html" class="test-button">Take Test</a> <!-- Link to another HTML file -->
+            <button class="download-button" onclick="downloadNotes('path_to_topic3_notes.pdf')">Download Notes</button>
+         </div>
+         <div class="video-container" onclick="document.getElementById('modal4').style.display='block'">
+            <img src="fpt4.jpeg" alt="Video Thumbnail">
+            <h3>Topic 4</h3>
+            <a href="#" class="play-on-youtube-button">Play Full Video on YouTube</a>
+            <a href="path_to_another_html.html" class="test-button">Take Test</a> <!-- Link to another HTML file -->
+            <button class="download-button" onclick="downloadNotes('D.pdf')">Download Notes</button>
+         </div>
+      </div>
+   </div>
+</section>
+
+<!-- Modals and footer -->
+
+<footer>
+   <div class="container">
+      <p>&copy; 2022 PHYZIGS by Swagat. All rights reserved.</p>
+   </div>
+</footer>
+
+<div id="modal1" class="modal" onclick="closeModal('modal1')">
+   <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <video controls>
+         <source src="video1.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+      </video>
+   </div>
+</div>
+
+<!-- Add more modals for other videos if needed -->
+
+<script>
+   function closeModal(modalId) {
+      var modal = document.getElementById(modalId);
+      var video = modal.querySelector('video');
+      video.pause();
+      modal.style.display = "none";
+   }
+
+   function downloadNotes(pdfPath) {
+      window.open(pdfPath, "_blank");
+   }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulations</title>
+    <style>
+        body {
+            background-color: beige;
+            background: linear-gradient(135deg, beige, #ebc6a6);
+
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Allow containers to wrap */
+            gap: 20px; /* Gap between containers */
+        }
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background-color: maroon;
+            color: beige;
+            font-size: 24px;
+            border-radius: 10px 10px 0 0;
+        }
+        .container {
+            width: 300px; /* Adjusted width for two containers in a row */
+            padding: 20px;
+            background: linear-gradient(135deg, #b73a3a, #5c1717); /* Gradient background */
+            color: beige;
+            text-align: center;
+            border-radius: 20px; /* Increased border radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow */
+            margin-bottom: 20px; /* Margin between containers */
+            position: relative; /* Added positioning */
+            overflow: visible; /* Allow overflow to show outside container */
+        }
+        .container:hover {
+            transform: scale(1.05); /* Scale up on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        .thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 10px; /* Adjusted border radius */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown {
+            position: absolute; /* Adjusted positioning */
+            bottom: 10px; /* Move dropdown above container */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+            background-color: maroon; /* Dropdown background color */
+            border-radius: 5px; /* Rounded corners for dropdown button */
+            z-index: 1; /* Ensure the dropdown button appears above the image */
+        }
+        .dropdown select {
+            padding: 10px 20px; /* Padding for dropdown button */
+            background-color: maroon; /* Button background color */
+            color: beige; /* Button text color */
+            border: none; /* Remove button border */
+            cursor: pointer; /* Change cursor to pointer */
+            border-radius: 5px; /* Rounded corners for dropdown button */
+            appearance: none; /* Remove default dropdown arrow */
+            outline: none; /* Remove outline */
+            font-size: 16px; /* Adjust font size */
+        }
+        .dropdown-content {
+            position: absolute;
+            top: calc(100% + 10px); /* Position dropdown content below the container */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+            background-color: beige; /* Dropdown content background color */
+            padding: 5px 0; /* Padding for dropdown content */
+            border-radius: 5px; /* Rounded corners for dropdown content */
+            display: none; /* Initially hidden */
+            z-index: 2; /* Ensure the dropdown content appears above the container */
+            width: max-content; /* Adjust width to content */
+        }
+        .dropdown:hover .dropdown-content {
+            display: block; /* Show dropdown content on button hover */
+        }
+        .dropdown-content select {
+            width: 100%; /* Set dropdown width to fill container */
+            padding: 8px 16px; /* Padding for dropdown options */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners for dropdown options */
+            cursor: pointer; /* Change cursor to pointer */
+            outline: none; /* Remove outline */
+            appearance: none; /* Remove default dropdown arrow */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simulation</h1>
+    </header>
+    <div class="container">
+        <h2>Class 8</h2>
+        <img src="8sim.jpg" alt="Thumbnail" class="thumbnail">
+        <div class="dropdown">
+            <select>
+                <option value="">Choose Chapter</option>
+                <option value="class8">Class 8</option>
+                <option value="class9">Class 9</option>
+                <option value="class10">Class 10</option>
+            </select>
+        </div>
+    </div>
+    <div class="container">
+      <h2>Class 9</h2>
+      <img src="9sim.jpg" alt="Thumbnail" class="thumbnail">
+      <div class="dropdown">
+          <select>
+              <option value="">Choose Chapter</option>
+              <option value="class8">Class 8</option>
+              <option value="class9">Class 9</option>
+              <option value="class10">Class 10</option>
+          </select>
+      </div>
+  </div>
+  <div class="container">
+    <h2>Class 10</h2>
+    <img src="10sim.jpg" alt="Thumbnail" class="thumbnail">
+    <div class="dropdown">
+        <select>
+            <option value="">Choose Chapter</option>
+            <option value="class8">Class 8</option>
+            <option value="class9">Class 9</option>
+            <option value="class10">Class 10</option>
+        </select>
+    </div>
+</div>
+<div class="container">
+  <h2>Class 11</h2>
+  <img src="11sim.jpg" alt="Thumbnail" class="thumbnail">
+  <div class="dropdown">
+      <select>
+          <option value="">Choose Chapter</option>
+          <option value="class8">Class 8</option>
+          <option value="class9">Class 9</option>
+          <option value="class10">Class 10</option>
+      </select>
+  </div>
+</div>
+<div class="container">
+  <h2>Class 12</h2>
+  <img src="12sim.jpg" alt="Thumbnail" class="thumbnail">
+  <div class="dropdown">
+      <select>
+          <option value="">Choose Chapter</option>
+          <option value="class8">Class 8</option>
+          <option value="class9">Class 9</option>
+          <option value="class10">Class 10</option>
+      </select>
+  </div>
+</div>
+<div class="container">
+  <h2>B.Sc sem</h2>
+  <img src="bsim.jpg" alt="Thumbnail" class="thumbnail">
+  <div class="dropdown">
+      <select>
+          <option value="">Choose Chapter</option>
+          <option value="class8">Class 8</option>
+          <option value="class9">Class 9</option>
+          <option value="class10">Class 10</option>
+      </select>
+  </div>
+</div>
+  </div>
+  </div>
+</div>
+    <!-- Repeat the container structure for the remaining five containers -->
+</body>
+</html>
