@@ -16,7 +16,7 @@
         margin: 0;
         padding: 0;
         background-color: black;
-        background: linear-gradient(135deg, beige, rgb(251, 226, 164));
+        background: linear-gradient(175deg, beige,brown);
         color: black;
         display: flex;
         flex-direction: column;
@@ -30,20 +30,21 @@
         color: #cb0808;
         padding: 20px;
         text-align: center;
+        position: relative;
     }
 
-    .header .logo {
+    .logo {
         color: beige;
         text-decoration: none;
         font-size: 24px;
         font-weight: bold;
     }
 
-    .header .search-form {
+    .search-form {
         margin-top: 20px;
     }
 
-    .header .search-form input[type="text"] {
+    .search-form input[type="text"] {
         padding: 10px;
         width: 300px;
         border: none;
@@ -51,7 +52,7 @@
         font-size: 16px;
     }
 
-    .header .search-form button {
+    .search-form button {
         padding: 10px 20px;
         background-color: beige;
         color: maroon;
@@ -62,11 +63,81 @@
         margin-left: 10px;
     }
 
+    /* Profile option Styles */
+    .profile-option {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    .profile-icon {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: beige;
+        font-size: 20px;
+    }
+
+    .profile-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: maroon;
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1;
+    }
+
+    .profile-dropdown .username {
+        color: beige;
+        font-weight: bold;
+    }
+
+    .profile-dropdown .class {
+        color: beige;
+        font-style: italic;
+    }
+
+    .profile-dropdown .logout {
+        display: block;
+        color: beige;
+        text-decoration: none;
+        margin-top: 5px;
+    }
+
+    .profile-dropdown .logout:hover {
+        text-decoration: underline;
+    }
+
     /* Main Content Styles */
     .main-content {
         padding: 20px;
         text-align: center;
         flex: 1; /* Added to fill remaining space */
+    }
+
+    .additional-buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .additional-buttons .btn {
+        background-color: maroon; /* Maroonish brown */
+        color: beige;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        margin: 0 10px;
+    }
+
+    .additional-buttons .btn:hover {
+        background-color: #efc689; /* Darker shade for hover effect */
     }
 
     .course-container {
@@ -82,7 +153,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background: linear-gradient(135deg, #b73a3a, #5c1717); 
         margin-bottom: 20px; /* Adjust margin for spacing between rows */
-        padding: 20px;
+        padding: 17px;
         width: calc(50% - 20px); /* Two containers per row */
         text-align: center;
         position: relative;
@@ -95,13 +166,13 @@
         max-width: 100%;
         height: auto;
         border-radius: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 6px;
     }
 
     .course a.btn {
         background-color: beige;
         color: maroon;
-        padding: 10px 20px;
+        padding: 5px 10px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -113,29 +184,6 @@
         background-color:black;
         color: beige; /* Change text color on hover */
     }
-    /* Additional Buttons Styles */
-.additional-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.additional-buttons .btn {
-    background-color: maroon; /* Maroonish brown */
-    color: beige;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    margin: 0 10px;
-}
-
-.additional-buttons .btn:hover {
-    background-color: #efc689; /* Darker shade for hover effect */
-}
-
 
     /* Footer Styles */
     .footer {
@@ -207,7 +255,18 @@
 <body>
 <!-- Header -->
 <header class="header">
-   <a href="home.html" class="logo">PHYZIGS by Swagat</a>
+   <a href="home.html" class="logo">PHYZIGS </a>
+   <!-- Profile option -->
+   <div class="profile-option">
+       <button class="profile-icon" onclick="toggleProfileDropdown()">
+           <i class="fas fa-user-futuristic"></i> <!-- Unique symbol for profile -->
+       </button>
+       <div class="profile-dropdown" id="profileDropdown">
+           <span class="username">John Doe</span>
+           <span class="class">Class 10</span>
+           <a href="logout.html" class="logout">Logout</a>
+       </div>
+   </div>
    <form action="search.html" method="post" class="search-form">
       <input type="text" name="search_box" required placeholder="Search courses..." maxlength="100">
       <button type="submit">Search</button>
@@ -225,32 +284,26 @@
    <!-- Course Containers -->
    <div class="course-container">
       <div class="course">
-         
          <img src="class8.jpg" alt="Class 8, 9, 10 Image">
          <a href="playlist.html" class="btn">EXPLORE</a>
       </div>
       <div class="course">
-       
          <img src="class9.jpg" alt="Class 11, 12 Image">
          <a href="class11_12_playlist.html" class="btn">EXPLORE</a>
       </div>
       <div class="course">
-         
          <img src="class10.jpg" alt="BSc Semesters Image">
          <a href="bsc_semesters_playlist.html" class="btn">EXPLORE</a>
       </div>
       <div class="course">
-       
          <img src="class11.jpg" alt="Test Image">
          <a href="MCQ FINAL.HTML" class="btn">EXPLORE</a>
       </div>
       <div class="course">
-        
          <img src="class12.jpg" alt="Notes Library Image">
          <a href="notes_library.html" class="btn">EXPLORE</a>
       </div>
       <div class="course">
-        
          <img src="bssem.jpg" alt="Notes Library Image">
          <a href="notes_library.html" class="btn">EXPLORE</a>
       </div>
@@ -279,27 +332,18 @@
 </div>
 
 <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Show modal after 2 seconds
-setTimeout(function() {
-  modal.style.display = "block";
-}, 2000);
-
-// Get the close button
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the close button, close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+// Toggle profile dropdown
+function toggleProfileDropdown() {
+    var dropdown = document.getElementById("profileDropdown");
+    dropdown.style.display === "block" ? dropdown.style.display = "none" : dropdown.style.display = "block";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// Close profile dropdown when clicking outside of it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+    var dropdown = document.getElementById("profileDropdown");
+    if (event.target != dropdown && event.target.parentNode != dropdown) {
+        dropdown.style.display = "none";
+    }
 }
 </script>
 
